@@ -1,13 +1,13 @@
 {
-  "name": "Ricomposizione",
+  "name": "Ricomp - segui popetto",
   "short_name": "Ricomp",
   "description": "Piano alimentare, allenamento e misure",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#faf9f7",
-  "theme_color": "#faf9f7",
+  "background_color": "#534ab7",
+  "theme_color": "#534ab7",
   "lang": "it",
   "icons": [
     {
