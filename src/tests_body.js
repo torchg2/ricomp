@@ -106,12 +106,38 @@ t('conferma sul peso fuori da 40-150', () => {
 });
 
 console.log('\n--- settimana storta e target ---');
-t('storta: tre pasti, target 2150, log quando si spegne', () => {
-  cur = T; ok(!isStorta(T)); toggleStorta(); ok(isStorta(T)); eq(mealsFor(T).length, 3); eq(target(T).kcal, 2150);
-  toggleStorta(); ok(!S.storta.on); eq(S.storta.log.length, 1); ok(isStorta(T), 'il giorno resta storto nel log');
-  ok(!isStorta(shift(T, 1)), 'domani non lo e');
-  ok(stortaRecente(shift(T, 3)));
+t('storta: accesa e spenta lo stesso giorno sparisce del tutto', () => {
   S.storta = { on: false, from: null, log: [] };
+  cur = T; ok(!isStorta(T)); toggleStorta(); ok(isStorta(T)); eq(mealsFor(T).length, 3); eq(target(T).kcal, 2150);
+  toggleStorta(); ok(!S.storta.on); ok(!isStorta(T), 'spenta deve restare spenta'); eq(S.storta.log.length, 0);
+  toggleStorta(); ok(isStorta(T), 'e si riaccende');
+  S.storta = { on: false, from: null, log: [] };
+});
+t('storta: spenta dopo tre giorni, il periodo finisce ieri', () => {
+  S.storta = { on: true, from: shift(T, -3), log: [] }; cur = T;
+  toggleStorta(); ok(!isStorta(T)); ok(isStorta(shift(T, -1))); ok(isStorta(shift(T, -3)));
+  eq(S.storta.log.length, 1); eq(S.storta.log[0].to, shift(T, -1));
+  ok(stortaRecente(shift(T, 3)), 'la settimana dopo resta segnata per il protocollo');
+  S.storta = { on: false, from: null, log: [] };
+});
+t('storta: sui giorni passati segna e toglie un giorno solo', () => {
+  S.storta = { on: false, from: null, log: [] }; cur = shift(T, -5);
+  toggleStorta(); ok(isStorta(shift(T, -5))); ok(!isStorta(shift(T, -4))); ok(!isStorta(T));
+  toggleStorta(); ok(!isStorta(shift(T, -5))); eq(S.storta.log.length, 0);
+  S.storta = { on: false, from: null, log: [{ from: shift(T, -9), to: shift(T, -7) }] }; cur = shift(T, -8);
+  toggleStorta(); ok(isStorta(shift(T, -9))); ok(!isStorta(shift(T, -8))); ok(isStorta(shift(T, -7)), 'spezza il periodo in due');
+  S.storta = { on: false, from: null, log: [] }; cur = T;
+});
+t('migrazione 3 -> 3.1: azzera la storta bloccata, lascia il resto', () => {
+  S = blank(); S.v = 3; S.storta = { on: true, from: shift(T, -2), log: [{ from: T, to: T }] }; day(T).hip = 1;
+  ok(migraS()); eq(S.v, DB.ver); ok(!S.storta.on); eq(S.storta.log.length, 0); eq(day(T).hip, 1, 'il voto anca non si sposta');
+  ok(!migraS(), 'una volta sola');
+});
+t('stima rapida: la fibra si salva', () => {
+  S = blank(); cur = T; pick('pranzo'); openStima();
+  el('e-n').value = 'Sushi'; el('e-k').value = '1280'; el('e-p').value = '97'; el('e-f').value = '53'; el('e-c').value = '105'; el('e-fb').value = '9';
+  addStima(); const it = day(T).m.pranzo[0]; eq(it.fib, 9); eq(tot(day(T)).fib, 9);
+  ok(el('oggi-dyn').innerHTML.indexOf('fibra 9') >= 0 || (renderOggi(), el('oggi-dyn').innerHTML.indexOf('fibra 9') >= 0), 'la fibra si vede nella riga');
 });
 t('target per giorno: allenamento / riposo', () => {
   day(T).tr = true; eq(target(T).kcal, 2050); day(T).tr = false; eq(target(T).kcal, 1900);
@@ -141,7 +167,7 @@ t('migrazione v2 -> v3 sposta il voto al giorno dopo', () => {
   o.days['2026-09-11'] = { m: {}, tr: false, sup: {}, water: 0, w: { done: false, sed: null, ex: {} }, hip: 1 };
   o.days['2026-09-10'].m = { colazione: [{ n: 'Caffe', g: 30, kcal: 1, p: 0, f: 0, c: 0 }, { n: 'Skyr', g: 150, kcal: 90, p: 15, f: 0, c: 6 }] };
   S = Object.assign(blank(), o);
-  ok(migraS(), 'la migrazione deve scattare su v2'); eq(S.v, 3);
+  ok(migraS(), 'la migrazione deve scattare su v2'); eq(S.v, DB.ver);
   eq(day('2026-09-11').hip, 2); eq(day('2026-09-12').hip, 1); eq(day('2026-09-10').hip, null);
   eq(day('2026-09-10').m.colazione.map(i => i.n), ['Caffè', 'Skyr'], 'nomi rinominati nel diario');
   ok(!migraS(), 'non deve girare due volte');
@@ -182,6 +208,86 @@ t('Applica: sposta i target e tace 14 giorni, mai sotto 1750', () => {
   S.lastAdj = shift(T, -15); const p = proto(); eq(p.delta, 0, 'blocco sotto 1750'); ok(p.mot.indexOf('1750') >= 0);
 });
 
+console.log('\n--- 3.2: giornata, ristorante, progressione, seduta ---');
+t('selettore giornata: storta si accende e si spegne dal selettore', () => {
+  S = blank(); cur = T; setDayType('storta'); ok(isStorta(T)); eq(target(T).kcal, 2150);
+  setDayType('riposo'); ok(!isStorta(T)); eq(day(T).tr, false); eq(target(T).kcal, 1900);
+  setDayType('allen'); eq(day(T).tr, true); eq(target(T).kcal, 2050);
+  S.storta = { on: true, from: shift(T, -2), log: [] }; setDayType('allen'); ok(!isStorta(T)); ok(isStorta(shift(T, -1)), 'i giorni prima restano storti');
+  S.storta = { on: false, from: null, log: [] };
+});
+t('bevande corrette: gin tonic ~190 kcal a bicchiere, non 450', () => {
+  const g = food('Gin tonic'); ok(Math.abs(g.kcal * g.ug / 100 - 188) < 10);
+  const c = food('Campari spritz'); ok(c && Math.abs(c.kcal * c.ug / 100 - 210) < 10);
+});
+t('piatti nuovi: hamburger 100 e 200 g, pizze, accenti', () => {
+  const b1 = DB.piatti.find(p => p.n === 'Cheeseburger, 100 g di manzo'), b2 = DB.piatti.find(p => p.n === 'Cheeseburger, 200 g di manzo');
+  ok(b1 && b2 && b2.kcal - b1.kcal > 200 && b2.p > b1.p);
+  ok(DB.piatti.length >= 110); ok(DB.piatti.some(p => p.n === 'Tiramisù, porzione')); ok(!DB.piatti.some(p => p.n === 'Tiramisu, porzione'));
+  ok(DB.cats.indexOf('bar') >= 0);
+});
+t('migrazione 3.1 -> 3.2: piatti rinominati nel diario', () => {
+  S = blank(); S.v = 3.1; day(T).m.cena = [{ n: 'Tiramisu, porzione', pz: 1, kcal: 400, p: 7, f: 24, c: 38, fib: 1 }];
+  ok(migraS()); eq(day(T).m.cena[0].n, 'Tiramisù, porzione'); eq(S.v, DB.ver); ok(S.prog);
+});
+t('ristorante: sushi composto con i contatori', () => {
+  S = blank(); cur = T; pick('pranzo', '__rist'); ok(el('sbody').innerHTML.indexOf('Pizzeria') >= 0);
+  const si = DB.rist.findIndex(l => l.n === 'Sushi'); rLocal(si);
+  const L = DB.rist[si], ix = n => L.items.findIndex(i => i.n === n);
+  for (let k = 0; k < 6; k++) rAdj(ix('Sashimi salmone'), 1);
+  for (let k = 0; k < 8; k++) rAdj(ix('Uramaki tonno e avocado'), 1);
+  rAdj(ix('Zuppa di miso'), 1); rAdj(ix('Edamame'), 1); rAdj(ix('Edamame'), 1); rAdj(ix('Edamame'), -1);
+  const t0 = rTot(); eq(t0.n, 4); ok(t0.kcal > 700 && t0.kcal < 750, 'kcal ' + t0.kcal);
+  rAddAll(); const it = day(T).m.pranzo; eq(it.length, 4);
+  const sa = it.find(i => i.n === 'Sashimi salmone'); eq(sa.q, 6); eq(sa.g, 90); eq(sa.kcal, 167);
+  const ed = it.find(i => i.n === 'Edamame'); eq(ed.g, 80);
+});
+t('ristorante: condimento +15% solo sui piatti', () => {
+  S = blank(); cur = T; pick('cena', '__rist'); const pi = DB.rist.findIndex(l => l.n === 'Pizzeria'); rLocal(pi);
+  const L = DB.rist[pi]; rAdj(L.items.findIndex(i => i.n === 'Pizza marinara'), 1); rAdj(L.items.findIndex(i => i.n === 'Birra chiara'), 1);
+  const a = rTot().kcal; rTog(); const b = rTot().kcal; eq(Math.round(b - a), 105, 'solo 15% di 700');
+  rAddAll(); const pz = day(T).m.cena.find(i => i.n === 'Pizza marinara'); eq(pz.kcal, 805); eq(pz.mod, 1);
+});
+t('progressione: parse e passi nell\'ordine del piano', () => {
+  eq(fmtPr(parsePr('2 x 20-30 s per lato')), '2 x 20-30 s per lato'); eq(parsePr('4 giri x 40 s').giri, 4);
+  S = blank(); const e = DB.sedute.C.ex.find(x => x.n === 'Piegamenti sulle braccia');
+  eq(prFor('C', e).pr, '4 x 8-12'); S.prog = { 'C|Piegamenti sulle braccia': { lv: 1, at: T } }; eq(prFor('C', e).pr, '5 x 8-12', 'prima leva: una serie');
+  S.prog['C|Piegamenti sulle braccia'].lv = 2; eq(prFor('C', e).pr, '5 x 10-14', 'poi ripetizioni');
+  S.prog['C|Piegamenti sulle braccia'].lv = 3; eq(prFor('C', e).note[0], '3 secondi in discesa', 'niente elastico nei piegamenti: poi tempo');
+  const tr = DB.sedute.A.ex.find(x => x.n === 'Trazioni alla sbarra'); S.prog = { 'A|Trazioni alla sbarra': { lv: 2, at: T } }; eq(prFor('A', tr).pr, '5 x 6', 'reps basse: +1');
+  const pl = DB.sedute.A.ex.find(x => x.n === 'Plank sulle mani'); S.prog = { 'A|Plank sulle mani': { lv: 2, at: T } }; eq(prFor('A', pl).pr, '4 x 35-50 s');
+});
+t('suggerimento: due + di fila, bloccato dal voto anca >= 2', () => {
+  S = blank(); const e = DB.sedute.A.ex.find(x => x.n === 'Rematore da seduto con l\'elastico');
+  const k1 = shift(T, -9), k2 = shift(T, -2);
+  [k1, k2].forEach(k => { const d = day(k); d.w = { done: true, sed: 'A', ex: { [e.n]: 1 }, corta: false, presto: false } });
+  let s = suggest('A', e); ok(s && !s.blocked, 'suggerisce'); eq(s.txt, '4 x 12-15');
+  day(shift(k2, 1)).hip = 2; s = suggest('A', e); ok(s.blocked, 'bloccato');
+  day(shift(k2, 1)).hip = 1; cur = T; applySugg('A', e.n); eq(S.prog['A|' + e.n].lv, 1); eq(prFor('A', e).pr, '4 x 12-15');
+  ok(!suggest('A', e), 'dopo l\'aumento servono altre due sedute'); undo(); ok(!S.prog['A|' + e.n], 'annulla');
+});
+t('modalità seduta: circuito D e seduta A', () => {
+  S = blank(); const P = sessPlan('D', false);
+  eq(P.filter(p => p.k === 'w').length, 24); eq(P.filter(p => p.k === 'g').length, 3); ok(P.every(p => !p.secs || p.secs > 0));
+  eq(P[0].secs, 40); eq(P[1].secs, 20); eq(P[P.length - 1].k, 'w', 'finisce con il lavoro, niente pausa finale');
+  const A = sessPlan('A', false); eq(A.filter(p => p.k === 's' && p.n === 'Trazioni alla sbarra').length, 4);
+  eq(A.filter(p => p.k === 'w' && p.n === 'Plank sulle mani').length, 3); eq(A.find(p => p.k === 'w').secs, 45);
+  const B = sessPlan('B', false); eq(B.filter(p => p.k === 'w' && p.n === 'Plank laterale sulle ginocchia').length, 4, 'per lato = due blocchi a serie');
+  cur = T; day(T).w.sed = 'D'; sessOpen(); ok(el('sess').innerHTML.indexOf('Giro 1 di 4') >= 0); ok(el('sess').innerHTML.indexOf('Piegamenti') >= 0);
+  sessNext(); sessNext(); ok(el('sess').innerHTML.indexOf('Stazione 2 di 6') >= 0);
+  SS.i = SS.plan.length; sessStart(); ok(el('sess').innerHTML.indexOf('Seduta finita') >= 0); sessDone(); ok(day(T).w.done); clearInterval(SS.iv);
+});
+t('scheda esercizio: attenzione in cima e tre sezioni nuove', () => {
+  cur = T; exSheet('Ponte glutei a terra'); const h = el('s2body').innerHTML;
+  ok(h.indexOf('Attenzione') < h.indexOf('Prima')); ok(h.indexOf('Errori comuni') > 0 && h.indexOf('Perché lo fai') > 0 && h.indexOf('Se fa male') > 0);
+  ok(Object.keys(DB.ex).every(n => DB.ex[n].errori.length && DB.ex[n].perche && DB.ex[n].male));
+});
+t('scheda Oggi: due anelli, tacca del target, pasto in ambra oltre il 110%', () => {
+  S = blank(); cur = T; day(T).m.pranzo = [{ n: 'Sushi', g: 0, st: 1, kcal: 1280, p: 97, f: 53, c: 105, fib: 9 }]; renderOggi();
+  const h = el('oggi-dyn').innerHTML; ok(h.indexOf('Calorie') > 0 && h.indexOf('Proteine') > 0); ok(h.indexOf('<s style="left:76.9%"') > 0);
+  ok(h.indexOf('mtot over') > 0); ok(h.indexOf('+660') > 0 || h.indexOf('+670') > 0, 'eccedenza sul pasto');
+  ok(h.indexOf('Storta</button>') > 0);
+});
 console.log('\n--- rendering ---');
 t('cinque schede si disegnano senza errori', () => {
   S = blank(); cur = T;
@@ -216,7 +322,7 @@ t('timer parte e si ferma', () => { timer(60); ok(TM.end > Date.now()); timerSto
 t('export/import con migrazione', () => {
   S = blank(); const raw = JSON.stringify({ v: 2, days: { '2026-09-10': { m: {}, w: { done: true, sed: 'A', ex: {} }, hip: 1 } }, meas: {}, custom: [], ovr: {}, sch: {} });
   global.FileReader = function () { const r = this; this.readAsText = () => { r.result = raw; r.onload(); }; };
-  importJ({ files: [{}] }); eq(day('2026-09-11').hip, 1); eq(S.v, 3);
+  importJ({ files: [{}] }); eq(day('2026-09-11').hip, 1); eq(S.v, DB.ver);
   ok(Object.keys(DB.ren).length >= 4 && DB.ren['Caffe'] === 'Caffè', 'mappa dei rinominati nel DB');
   ok(food('Caffè') && !food('Caffe'), 'il nuovo nome esiste, il vecchio no');
 });

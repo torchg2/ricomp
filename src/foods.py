@@ -15,7 +15,7 @@ Fonti: CREA per gli alimenti italiani, USDA dove mancano. Per i prodotti
 confezionati fa fede l'etichetta: nell'app c'è "Modifica i valori
 nutrizionali" per correggerli una volta per tutte.
 
-CATEGORIE: verdura, frutta, cereali, latticini, carne, pesce, sushi, uova,
+CATEGORIE: verdura, frutta, cereali, latticini, carne, pesce, sushi, uova, bar,
 legumi, frutta secca, condimenti, confezionati, bevande
 """
 
@@ -499,13 +499,47 @@ BEVANDE = [
     F("Prosecco", 80, 0.1, 0.0, 3.0, 0.0, "bevande", "flute", 100),
     F("Distillato 40 gradi", 231, 0.0, 0.0, 0.0, 0.0, "bevande", "bicchierino", 40),
     F("Amaro", 250, 0.0, 0.0, 30.0, 0.0, "bevande", "bicchierino", 40),
-    F("Aperol spritz", 130, 0.0, 0.0, 13.0, 0.0, "bevande", "bicchiere", 200),
-    F("Gin tonic", 180, 0.0, 0.0, 16.0, 0.0, "bevande", "bicchiere", 250),
+    F("Aperol spritz", 85, 0.0, 0.0, 9.0, 0.0, "bevande", "bicchiere", 200),
+    F("Gin tonic", 75, 0.0, 0.0, 6.4, 0.0, "bevande", "bicchiere", 250),
     F("Birra artigianale IPA", 60, 0.6, 0.0, 5.0, 0.0, "bevande", "bottiglia", 330),
     F("Limoncello", 300, 0.0, 0.0, 30.0, 0.0, "bevande", "bicchierino", 30),
     F("Negroni", 240, 0.0, 0.0, 20.0, 0.0, "bevande", "bicchiere", 90),
-    F("Moscow mule", 180, 0.0, 0.0, 20.0, 0.0, "bevande", "bicchiere", 250),
+    F("Moscow mule", 76, 0.0, 0.0, 8.0, 0.0, "bevande", "bicchiere", 250),
     F("Americano", 150, 0.0, 0.0, 15.0, 0.0, "bevande", "bicchiere", 120),
+    F("Campari spritz", 105, 0.0, 0.0, 10.5, 0.0, "bevande", "bicchiere", 200),
+    F("Campari soda", 110, 0.0, 0.0, 13.0, 0.0, "bevande", "bottiglietta", 98),
+    F("Campari liscio", 240, 0.0, 0.0, 24.0, 0.0, "bevande", "bicchierino", 40),
+    F("Hugo spritz", 85, 0.0, 0.0, 9.0, 0.0, "bevande", "bicchiere", 200),
+    F("Mojito", 90, 0.0, 0.0, 11.0, 0.0, "bevande", "bicchiere", 250),
+    F("Crodino", 70, 0.0, 0.0, 17.0, 0.0, "bevande", "bottiglietta", 100),
+    F("Birra analcolica", 22, 0.3, 0.0, 4.8, 0.0, "bevande", "bottiglia", 330),
+    F("Cappuccino di soia", 38, 2.8, 1.6, 3.2, 0.4, "bevande", "tazza", 150),
+    F("Cappuccino con latte d'avena", 45, 0.8, 1.3, 7.5, 0.6, "bevande", "tazza", 150),
+    F("Caffè al ginseng", 90, 1.0, 3.0, 15.0, 0.0, "bevande", "tazzina", 40),
+]
+
+# Bar e aperitivo: si contano a pezzi, i valori sono per 100 g
+BAR = [
+    F("Brioche vuota", 410, 8.0, 20.0, 48.0, 2.0, "bar", "pezzo", 50),
+    F("Brioche alla crema", 380, 7.0, 17.0, 49.0, 1.5, "bar", "pezzo", 70),
+    F("Brioche alla marmellata", 375, 6.0, 15.0, 53.0, 2.0, "bar", "pezzo", 70),
+    F("Brioche integrale al miele", 385, 8.0, 16.0, 51.0, 5.0, "bar", "pezzo", 65),
+    F("Pain au chocolat", 420, 7.0, 22.0, 46.0, 2.5, "bar", "pezzo", 60),
+    F("Muffin al cioccolato", 420, 6.0, 21.0, 52.0, 2.0, "bar", "pezzo", 90),
+    F("Toast prosciutto e formaggio", 270, 13.0, 11.0, 29.0, 2.0, "bar", "toast", 130),
+    F("Tramezzino tonno e pomodoro", 240, 10.0, 12.0, 23.0, 1.5, "bar", "pezzo", 110),
+    F("Tramezzino prosciutto e mozzarella", 255, 11.0, 13.0, 23.0, 1.2, "bar", "pezzo", 110),
+    F("Pizzetta rossa", 290, 7.0, 11.0, 40.0, 2.0, "bar", "pezzo", 80),
+    F("Tartina con salumi", 300, 11.0, 16.0, 28.0, 1.5, "bar", "pezzo", 25),
+    F("Pizzetta mignon", 300, 7.0, 13.0, 38.0, 2.0, "bar", "pezzo", 20),
+    F("Salatino di sfoglia", 520, 8.0, 32.0, 50.0, 2.0, "bar", "pezzo", 10),
+    F("Arachidi tostate salate", 600, 25.0, 50.0, 13.0, 8.0, "bar"),
+    F("Tigella", 290, 8.0, 7.0, 48.0, 2.0, "bar", "pezzo", 40),
+    F("Yogurt proteico", 58, 10.0, 0.2, 4.0, 0.0, "confezionati", "vasetto", 160),
+    F("Yogurt da bere proteico", 50, 8.3, 0.3, 4.0, 0.0, "confezionati", "bottiglia", 300),
+    F("Mousse proteica", 75, 10.0, 1.5, 5.0, 0.5, "confezionati", "vasetto", 200),
+    F("Cous cous pronto con verdure", 150, 4.5, 5.0, 22.0, 2.5, "confezionati", "vaschetta", 250),
+    F("Wrap al pollo pronto", 220, 11.0, 9.0, 23.0, 2.0, "confezionati", "pezzo", 200),
 ]
 
 SUSHI = [
@@ -527,14 +561,20 @@ SUSHI = [
     F("Tartare di salmone", 190, 19.0, 12.0, 1.0, 0.0, "sushi"),
     F("Tartare di tonno", 135, 23.0, 3.0, 1.0, 0.0, "sushi"),
     F("Poke bowl al salmone", 130, 8.0, 5.0, 15.0, 1.5, "sushi", "bowl", 450),
+    F("Uramaki tonno e avocado", 175, 6.0, 5.5, 25.0, 1.3, "sushi", "pezzo", 30),
+    F("Uramaki salmone e avocado", 185, 6.0, 6.5, 25.0, 1.3, "sushi", "pezzo", 30),
+    F("Insalata di alghe wakame", 70, 1.5, 3.5, 9.0, 3.5, "sushi", "porzione", 100),
+    F("Zuppa di miso", 20, 1.3, 0.6, 2.5, 0.5, "sushi", "ciotola", 200),
+    F("Gamberi sale e pepe", 150, 10.0, 7.5, 10.0, 0.5, "sushi", "porzione", 80),
+    F("Carpaccio di pesce", 110, 18.0, 4.0, 0.5, 0.0, "sushi", "fetta", 10),
 ]
 
 FOODS = (VERDURA + FRUTTA + CEREALI + LATTICINI + CARNE + PESCE + UOVA
-         + LEGUMI + FRUTTA_SECCA + CONDIMENTI + CONFEZIONATI + BEVANDE + SUSHI)
+         + LEGUMI + FRUTTA_SECCA + CONDIMENTI + CONFEZIONATI + BEVANDE + BAR + SUSHI)
 
 CATEGORIE = ["verdura", "frutta", "cereali", "latticini", "carne", "pesce",
              "sushi", "uova", "legumi", "frutta secca", "condimenti",
-             "confezionati", "bevande"]
+             "confezionati", "bar", "bevande"]
 
 # Alimenti rinominati rispetto alle versioni precedenti: vecchio nome -> nuovo.
 # L'app li usa una volta sola, alla prima apertura dopo l'aggiornamento e
@@ -545,4 +585,8 @@ RINOMINATI = {
     "Caffe con zucchero": "Caffè con zucchero",
     "Te senza zucchero": "Tè senza zucchero",
     "Te freddo confezionato": "Tè freddo confezionato",
+    "Tagliatelle al ragu, porzione": "Tagliatelle al ragù, porzione",
+    "Pasta al ragu bianco, porzione": "Pasta al ragù bianco, porzione",
+    "Suppli": "Supplì",
+    "Tiramisu, porzione": "Tiramisù, porzione",
 }

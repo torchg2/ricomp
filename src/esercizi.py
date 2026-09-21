@@ -29,7 +29,7 @@ ESERCIZI = [
         "sedute": 'A, C',
         "desc": 'Stessa esecuzione delle trazioni, ma con i piedi appoggiati su una sedia dietro di te. Spingi con le gambe quanto basta per completare la salita, e in discesa spingi il meno possibile.',
         "att": [
-            'E il modo giusto di aumentare le ripetizioni quando 5 non bastano più.',
+            'È il modo giusto di aumentare le ripetizioni quando 5 non bastano più.',
             'In discesa togli progressivamente la spinta delle gambe: è lì che costruisci la forza.',
             'Sedia contro il muro, non su un tappeto che scivola.',
         ],
@@ -42,7 +42,7 @@ ESERCIZI = [
         "sedute": 'riscaldamento A, C',
         "desc": 'Appeso alla sbarra a braccia quasi distese, abbassa le spalle allontanandole dalle orecchie senza piegare i gomiti. Tieni 10 secondi, ripeti 3 volte.',
         "att": [
-            'E un esercizio di scapole, non di braccia. Se pieghi i gomiti stai facendo una trazione.',
+            'È un esercizio di scapole, non di braccia. Se pieghi i gomiti stai facendo una trazione.',
             'Serve a svegliare la spalla prima delle trazioni: non saltarlo.',
             'Respira normalmente, non trattenere il fiato.',
         ],
@@ -296,7 +296,7 @@ ESERCIZI = [
         "desc": 'Dalla settimana 4, e solo se non ti dà fastidio il giorno dopo. Mano al muro, passo indietro, scendi METÀ di quanto scenderesti normalmente, risali. 2 serie da 8 per lato.',
         "att": [
             'NIENTE tenuta isometrica in basso: la tenuta prolunga la posizione di conflitto ed è esattamente ciò che ti dava fastidio.',
-            'Meta discesa. Se il ginocchio dietro arriva vicino a terra, sei sceso troppo.',
+            'Metà discesa. Se il ginocchio dietro arriva vicino a terra, sei sceso troppo.',
             'Busto verticale, non inclinato in avanti.',
             "Se il giorno dopo senti l'anca, torni indietro di una settimana. Non insistere.",
         ],
@@ -312,8 +312,140 @@ ESERCIZI = [
             'Facoltativa e condizionata: se il giorno dopo senti le anche, la togli e non ci torni.',
             'Sostituto: 40 secondi di marcia sul posto con ginocchia basse, oppure dead bug.',
             'Salti bassi, 2-3 cm. Non serve saltare alto, serve saltare tanto.',
-            "Mai come blocco cardio a se stante nei primi mesi: l'impatto ripetuto è la cosa che le anche con conflitto tollerano peggio.",
+            "Mai come blocco cardio a sé stante nei primi mesi: l'impatto ripetuto è la cosa che le anche con conflitto tollerano peggio.",
         ],
         "svg": '<svg xmlns="http://www.w3.org/2000/svg" class="dg" width="440" viewBox="0 0 340 156" preserveAspectRatio="xMidYMid meet"><defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="var(--figar)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker></defs><line x1="170" y1="18" x2="170" y2="148" stroke="var(--figline)" stroke-width="1" stroke-dasharray="3 4"/><g transform="translate(0,0)"><text x="79" y="14" text-anchor="middle" font-size="11" font-family="Helvetica,Arial" font-weight="bold" fill="var(--fig)">Partenza</text><line x1="6" y1="138" x2="152" y2="138" stroke="var(--figline)" stroke-width="2"/><circle cx="79" cy="40" r="9" fill="none" stroke="var(--fig)" stroke-width="2.2"/><line x1="79" y1="49" x2="79" y2="92" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="64" y1="54" x2="94" y2="54" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="64" y1="54" x2="58" y2="70" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="58" y1="70" x2="54" y2="84" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="94" y1="54" x2="100" y2="70" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="100" y1="70" x2="104" y2="84" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="79" y1="92" x2="72" y2="114" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="72" y1="114" x2="70" y2="138" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="79" y1="92" x2="86" y2="114" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="86" y1="114" x2="88" y2="138" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><path d="M54 84 Q79 8 104 84" fill="none" stroke="var(--figband)" stroke-width="2.2"/></g><g transform="translate(182,0)"><text x="79" y="14" text-anchor="middle" font-size="11" font-family="Helvetica,Arial" font-weight="bold" fill="var(--fig)">Fine</text><line x1="6" y1="138" x2="152" y2="138" stroke="var(--figline)" stroke-width="2"/><circle cx="79" cy="36" r="9" fill="none" stroke="var(--fig)" stroke-width="2.2"/><line x1="79" y1="45" x2="79" y2="88" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="64" y1="50" x2="94" y2="50" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="64" y1="50" x2="58" y2="66" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="58" y1="66" x2="54" y2="80" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="94" y1="50" x2="100" y2="66" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="100" y1="66" x2="104" y2="80" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="79" y1="88" x2="72" y2="108" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="72" y1="108" x2="70" y2="128" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="79" y1="88" x2="86" y2="108" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><line x1="86" y1="108" x2="88" y2="128" stroke="var(--fig)" stroke-width="2.2" stroke-linecap="round"/><path d="M54 80 Q79 152 104 80" fill="none" stroke="var(--figband)" stroke-width="2.2"/><line x1="126" y1="100" x2="126" y2="80" stroke="var(--figar)" stroke-width="1.8" stroke-linecap="round" marker-end="url(#ar)"/></g></svg>',
     },
 ]
+
+
+# --- Errori comuni, perché lo fai, se fa male ------------------------------
+# Tre sezioni in più per ogni esercizio, nella scheda dell'app.
+# Scritte a partire dalle note del piano, senza indicazioni nuove sulla parte
+# bassa: quella resta da far validare a un fisioterapista.
+
+EXTRA = {
+    "Trazioni alla sbarra": {
+        "errori": ["Mento proteso verso la sbarra: collo in tensione, schiena ferma. Porta il petto, non la faccia.",
+                   "Scendere a braccia bloccate per \"fare la ripetizione intera\": è il punto che irrita il gomito.",
+                   "Slancio di gambe nelle ultime ripetizioni. Quelle non contano."],
+        "perche": "È l'esercizio che costruisce più schiena e braccia con quello che hai in casa. Una schiena più larga cambia la forma del busto più di qualsiasi lavoro sull'addome.",
+        "male": "Fastidio al gomito sinistro durante la serie: fermati più in alto nella discesa. Se resta, passa alle trazioni assistite con la sedia per una settimana."},
+    "Trazioni assistite con la sedia": {
+        "errori": ["Spingere con le gambe anche in discesa: la parte che fa crescere la forza sparisce.",
+                   "Sedia troppo lontana: ti ritrovi a pendere in avanti e tira la zona lombare."],
+        "perche": "Ti fa accumulare ripetizioni di qualità quando le trazioni libere si fermano a 5. È il ponte tra dove sei e 8 trazioni pulite.",
+        "male": "Stesse regole delle trazioni: gomito che protesta, discesa più corta. La sedia deve essere ferma, se scivola ti fermi."},
+    "Sospensione attiva alla sbarra": {
+        "errori": ["Piegare i gomiti: diventa una mezza trazione e il gomito lavora quando non deve.",
+                   "Stare appeso passivo, spalle alle orecchie: è la posizione che si vuole evitare."],
+        "perche": "Prepara le scapole a lavorare nelle trazioni. Trenta secondi che rendono più sicure le serie dopo.",
+        "male": "Tirare o pizzicare in fondo al gomito da appeso: tieni i piedi a terra e scarica parte del peso."},
+    "Pull-apart con l'elastico": {
+        "errori": ["Mani che salgono verso il viso: lavora il trapezio invece della parte alta della schiena.",
+                   "Tornare di scatto: il ritorno lento vale quanto l'apertura."],
+        "perche": "Sveglia la parte alta della schiena e le spalle prima di tirare. Contrasta anche la postura chiusa di chi sta seduto molte ore.",
+        "male": "Fastidio davanti alla spalla: presa più larga e apertura più corta."},
+    "Face pull con l'elastico": {
+        "errori": ["Gomiti bassi: diventa un rematore e perde lo scopo.",
+                   "Buttarsi indietro con il busto per tendere l'elastico. Il corpo resta fermo."],
+        "perche": "Rinforza la cuffia dei rotatori e la parte posteriore della spalla, che bilancia piegamenti e lento avanti.",
+        "male": "Dolore davanti alla spalla: ancoraggio più basso e gomiti un po' meno aperti."},
+    "Rematore da seduto con l'elastico": {
+        "errori": ["Tirare con le braccia prima di aver avvicinato le scapole.",
+                   "Schiena che si arrotonda in avanti al ritorno. Se succede, sali sul cuscino."],
+        "perche": "Lavora la schiena in una posizione stabile e senza carico sulle anche. Bilancia la spinta dei piegamenti.",
+        "male": "Tirano i femorali o la zona lombare: siediti più in alto o piega un po' le ginocchia."},
+    "Rematore in piedi con l'elastico": {
+        "errori": ["Ancoraggio non controllato: è l'errore che fa male davvero, perché l'elastico torna sul viso.",
+                   "Busto che oscilla per finire la ripetizione."],
+        "perche": "Stessa schiena del rematore da seduto, in piedi: allena anche a tenere fermo il busto.",
+        "male": "Fastidio lombare: piedi più larghi, addome contratto, elastico meno teso."},
+    "Piegamenti sulle braccia": {
+        "errori": ["Gomiti aperti a T: il carico va tutto sul gomito e sulla spalla.",
+                   "Bacino che cede o sale a punta. Il corpo si muove come una tavola.",
+                   "Mezze ripetizioni: meglio mani sul tavolo e ripetizione intera."],
+        "perche": "Petto, spalle e tricipiti con zero attrezzi. È il principale esercizio di spinta del piano.",
+        "male": "Gomito sinistro che protesta: mani su un tavolo o un gradino. Polsi doloranti: appoggio sui pugni o sui manubri."},
+    "Lento avanti con l'elastico": {
+        "errori": ["Schiena che si inarca per finire la spinta.",
+                   "Gomiti che si aprono troppo in fuori: tienili un po' davanti al corpo."],
+        "perche": "Spalle più forti e più larghe: insieme alla schiena danno la forma a V che ridimensiona i fianchi.",
+        "male": "Pizzico in alto sulla spalla: spingi fino a dove non senti niente, non per forza a braccia distese."},
+    "Alzate laterali con i manubri": {
+        "errori": ["Salire sopra le spalle: lavora il trapezio.",
+                   "Slancio del busto. Con 3 kg non serve e toglie il lavoro alla spalla."],
+        "perche": "Isola la parte laterale della spalla, quella che dà larghezza. Con pesi leggeri la lentezza fa il lavoro.",
+        "male": "Dolore alla spalla sopra i 60-70 gradi: fermati prima e ruota un po' i pollici verso l'alto."},
+    "Curl a martello con i manubri": {
+        "errori": ["Ruotare verso la presa supina a metà salita: carica l'epicondilo.",
+                   "Gomiti che vanno avanti e dondolano."],
+        "perche": "Braccia e avambracci con la presa più gentile per il tuo gomito. È un complemento, non il centro della seduta.",
+        "male": "Qualsiasi fastidio al gomito sinistro: salti l'esercizio. Il piano lo prevede già."},
+    "Plank sulle mani": {
+        "errori": ["Bacino che cede e schiena inarcata: il carico va sulla zona lombare.",
+                   "Trattenere il fiato. Respira corto e regolare."],
+        "perche": "Insegna all'addome a tenere il busto fermo, che è il suo lavoro vero. Più utile di qualsiasi crunch.",
+        "male": "Fastidio lombare: fermati subito e riparti con serie più corte. Polsi: appoggio sugli avambracci."},
+    "Plank con tocco spalla": {
+        "errori": ["Bacino che ruota a ogni tocco.",
+                   "Fretta: il movimento veloce nasconde la rotazione."],
+        "perche": "Aggiunge al plank la resistenza alla rotazione, che è quello che fa il busto quando porti una borsa o la bambina in braccio.",
+        "male": "Gomito d'appoggio che protesta: torna al plank normale. Se il bacino ruota e non riesci a fermarlo, allarga i piedi."},
+    "Plank laterale sulle ginocchia": {
+        "errori": ["Passare alla versione sui piedi per \"fare di più\": comprime l'anca d'appoggio.",
+                   "Bacino che scende verso terra a fine serie."],
+        "perche": "Rinforza i muscoli laterali del busto e del bacino senza caricare l'anca.",
+        "male": "Senti l'anca d'appoggio: togli l'esercizio, come dice il piano. Non è indispensabile."},
+    "Dead bug": {
+        "errori": ["Lombare che si stacca da terra quando allunghi.",
+                   "Ginocchia che arrivano al petto: oltre i 90 gradi è flessione d'anca profonda."],
+        "perche": "Il lavoro dei crunch sull'addome, senza caricare i flessori dell'anca. Per il tuo conflitto è la versione giusta.",
+        "male": "Fastidio all'inguine: allunghi meno la gamba, o solo le braccia per una settimana."},
+    "Pallof press con l'elastico": {
+        "errori": ["Busto che ruota verso l'ancoraggio.",
+                   "Spalle che salgono alle orecchie."],
+        "perche": "Resistere alla rotazione protegge schiena e bacino. È addome che lavora come nella vita reale.",
+        "male": "Fastidio lombare: avvicinati all'ancoraggio e riduci la tensione dell'elastico."},
+    "Ponte glutei a terra": {
+        "errori": ["Piedi troppo lontani: lavorano i femorali invece dei glutei. Talloni a un palmo dai glutei.",
+                   "Ginocchia che si chiudono in salita: tienile in linea con i piedi, la mini band serve a questo.",
+                   "Salire di scatto. Su in 1 secondo, fermo 2, giù in 2."],
+        "perche": "Glutei forti tengono stabile il bacino e tolgono lavoro all'anca. Tra gli esercizi della parte bassa è quello che la mette meno sotto carico.",
+        "male": "Fastidio all'inguine o in fondo all'anca durante la serie: sali di meno. Voto 2 il giorno dopo: dimezza il range. Voto 3: salta l'esercizio e segnalo."},
+    "Ponte glutei a una gamba": {
+        "errori": ["Tirare al petto la gamba libera: è esattamente la flessione d'anca da evitare.",
+                   "Bacino che si inclina verso il lato libero."],
+        "perche": "Fa lavorare un gluteo alla volta e mostra se un lato è più debole. Arriva dalla settimana 4, quando il ponte normale è facile.",
+        "male": "Fastidio all'anca d'appoggio o bacino che non riesci a tenere dritto: torni al ponte con due gambe."},
+    "Abduzione in piedi con l'elastico": {
+        "errori": ["Busto che si inclina dall'altra parte per alzare di più la gamba.",
+                   "Piede che ruota in fuori: aggiunge rotazione all'anca."],
+        "perche": "Il medio gluteo stabilizza la testa del femore nell'acetabolo. Per la tua anca è l'esercizio più utile del piano.",
+        "male": "Pizzico all'anca che lavora o a quella d'appoggio: range più corto. Se resta, elastico più leggero."},
+    "Conchiglia (clamshell) con l'elastico": {
+        "errori": ["Aprire troppo: oltre un certo punto il bacino rolla e l'anca pizzica.",
+                   "Ginocchia piegate oltre i 60-90 gradi per sentire di più."],
+        "perche": "Lavora i rotatori e il medio gluteo in una posizione controllata, senza carico.",
+        "male": "Pizzico davanti nell'inguine: riduci ancora l'apertura. Se c'è anche con apertura minima, togli l'esercizio."},
+    "Stacco rumeno con i manubri": {
+        "errori": ["Piegare le ginocchia e scendere verticale: diventa uno squat.",
+                   "Manubri che si staccano dalle cosce: il carico va sulla schiena.",
+                   "Scendere sotto metà tibia \"per allungare\"."],
+        "perche": "Glutei e femorali, la catena posteriore, con il bacino che lavora in estensione. Richiede la tecnica più precisa della parte bassa.",
+        "male": "Pizzico all'inguine: range più corto. Dolore vero: togli l'esercizio, ponte e abduzione coprono il lavoro che conta."},
+    "Affondo indietro a range ridotto": {
+        "errori": ["Scendere troppo: se il ginocchio dietro si avvicina a terra, sei oltre il range.",
+                   "Fermarsi in basso. Nessuna tenuta, si risale subito."],
+        "perche": "Gambe e glutei in appoggio su una gamba alla volta, con il range tagliato per stare lontano dalla posizione di conflitto.",
+        "male": "Anca che si fa sentire il giorno dopo: torni indietro di una settimana, come dice il piano."},
+    "Corda per saltare": {
+        "errori": ["Saltare alto: aumenta l'impatto senza nessun vantaggio.",
+                   "Atterrare sui talloni. Avampiede, morbido."],
+        "perche": "Alza il battito nel circuito. È facoltativa: la sostituisci senza perdere niente.",
+        "male": "Anche che si fanno sentire il giorno dopo: la togli e non ci torni. Al suo posto marcia sul posto o dead bug."},
+}
+
+for _e in ESERCIZI:
+    _x = EXTRA[_e["n"]]
+    _e["errori"], _e["perche"], _e["male"] = _x["errori"], _x["perche"], _x["male"]
